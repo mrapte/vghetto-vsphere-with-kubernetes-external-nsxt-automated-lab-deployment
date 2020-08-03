@@ -2,52 +2,50 @@
 # Website: www.virtuallyghetto.com
 
 # vCenter Server used to deploy vSphere with Kubernetes Lab
-$VIServer = "mgmt-vcsa-01.cpbu.corp"
+$VIServer = "10.0.5.8"
 $VIUsername = "administrator@vsphere.local"
-$VIPassword = "VMware1!"
+$VIPassword = "Viloha123!"
 
 # Full Path to both the Nested ESXi 7.0 VA, Extracted VCSA 7.0 ISO & NSX-T OVAs
-$NestedESXiApplianceOVA = "C:\Users\william\Desktop\Project-Pacific\Nested_ESXi7.0_Appliance_Template_v1.ova"
-$VCSAInstallerPath = "C:\Users\william\Desktop\Project-Pacific\VMware-VCSA-all-7.0.0-15952498"
-$NSXTManagerOVA = "C:\Users\william\Desktop\Project-Pacific\nsx-unified-appliance-3.0.0.0.0.15946739.ova"
-$NSXTEdgeOVA = "C:\Users\william\Desktop\Project-Pacific\nsx-edge-3.0.0.0.0.15946012.ova"
+$NestedESXiApplianceOVA = "C:\Users\administrator\Downloads\VMware\ESXi\Nested_ESXi7.0_Appliance_Template_v1.ova"
+$VCSAInstallerPath = "C:\Users\administrator\Downloads\VMware\VCSA\VMware-VCSA-all-7.0.0-16189094"
+$NSXTManagerOVA = "C:\Users\administrator\Downloads\VMware\NSX\nsx-unified-appliance-3.0.0.0.0.15945876-le.ova"
+$NSXTEdgeOVA = "C:\Users\administrator\Downloads\VMware\NSX\nsx-edge-3.0.0.0.0.15945881-le.ova"
 
 # Nested ESXi VMs to deploy
 $NestedESXiHostnameToIPs = @{
-    "pacific-esxi-7" = "172.17.31.113"
-    "pacific-esxi-8" = "172.17.31.114"
-    "pacific-esxi-9" = "172.17.31.115"
+    "pacific-esxi-7" = "10.0.10.113"
 }
 
 # Nested ESXi VM Resources
-$NestedESXivCPU = "4"
-$NestedESXivMEM = "24" #GB
+$NestedESXivCPU = "2"
+$NestedESXivMEM = "19" #GB
 $NestedESXiCachingvDisk = "8" #GB
-$NestedESXiCapacityvDisk = "100" #GB
+$NestedESXiCapacityvDisk = "50" #GB
 
 # VCSA Deployment Configuration
 $VCSADeploymentSize = "tiny"
 $VCSADisplayName = "pacific-vcsa-3"
-$VCSAIPAddress = "172.17.31.112"
-$VCSAHostname = "pacific-vcsa-3.cpbu.corp" #Change to IP if you don't have valid DNS
-$VCSAPrefix = "24"
+$VCSAIPAddress = "10.0.10.112"
+$VCSAHostname = "10.0.10.112" #Change to IP if you don't have valid DNS
+$VCSAPrefix = "16"
 $VCSASSODomainName = "vsphere.local"
 $VCSASSOPassword = "VMware1!"
 $VCSARootPassword = "VMware1!"
 $VCSASSHEnable = "true"
 
 # General Deployment Configuration for Nested ESXi, VCSA & NSX VMs
-$VMDatacenter = "San Jose"
-$VMCluster = "Cluster-01"
-$VMNetwork = "SJC-CORP-MGMT"
-$VMDatastore = "vsanDatastore"
-$VMNetmask = "255.255.255.0"
-$VMGateway = "172.17.31.253"
-$VMDNS = "172.17.31.5"
+$VMDatacenter = "Datacenter1"
+$VMCluster = "Cluster1"
+$VMNetwork = "VM Network"
+$VMDatastore = "Datastore-5-10"
+$VMNetmask = "255.255.0.0"
+$VMGateway = "10.0.0.1"
+$VMDNS = "10.0.0.1"
 $VMNTP = "pool.ntp.org"
 $VMPassword = "VMware1!"
-$VMDomain = "cpbu.corp"
-$VMSyslog = "172.17.31.112"
+$VMDomain = "localdomain"
+$VMSyslog = "10.0.10.112"
 $VMFolder = "Project-Pacific"
 # Applicable to Nested ESXi only
 $VMSSH = "true"
@@ -67,7 +65,7 @@ $DevOpsUsername = "devops"
 $DevOpsPassword = "VMware1!"
 
 # NSX-T Configuration
-$NSXLicenseKey = ""
+$NSXLicenseKey = "P00CM-JK242-T82H0-0H0H6-805M4"
 $NSXRootPassword = "VMware1!VMware1!"
 $NSXAdminUsername = "admin"
 $NSXAdminPassword = "VMware1!VMware1!"
@@ -83,10 +81,10 @@ $TransportNodeProfileName = "Pacific-Host-Transport-Node-Profile"
 # TEP IP Pool
 $TunnelEndpointName = "TEP-IP-Pool"
 $TunnelEndpointDescription = "Tunnel Endpoint for Transport Nodes"
-$TunnelEndpointIPRangeStart = "172.30.1.10"
-$TunnelEndpointIPRangeEnd = "172.30.1.20"
-$TunnelEndpointCIDR = "172.30.1.0/24"
-$TunnelEndpointGateway = "172.30.1.1"
+$TunnelEndpointIPRangeStart = "10.0.30.10"
+$TunnelEndpointIPRangeEnd = "10.0.30.20"
+$TunnelEndpointCIDR = "10.0.30.0/24"
+$TunnelEndpointGateway = "10.0.30.1"
 
 # Transport Zones
 $OverlayTransportZoneName = "TZ-Overlay"
@@ -100,11 +98,11 @@ $NetworkSegmentVlan = "0"
 
 # T0 Gateway
 $T0GatewayName = "Pacific-T0-Gateway"
-$T0GatewayInterfaceAddress = "172.17.31.119" # should be a routable address
-$T0GatewayInterfacePrefix = "24"
+$T0GatewayInterfaceAddress = "10.0.10.119" # should be a routable address
+$T0GatewayInterfacePrefix = "16"
 $T0GatewayInterfaceStaticRouteName = "Pacific-Static-Route"
 $T0GatewayInterfaceStaticRouteNetwork = "0.0.0.0/0"
-$T0GatewayInterfaceStaticRouteAddress = "172.17.31.253"
+$T0GatewayInterfaceStaticRouteAddress = "10.0.0.1"
 
 # Uplink Profiles
 $ESXiUplinkProfileName = "ESXi-Host-Uplink-Profile"
@@ -126,23 +124,23 @@ $EdgeClusterName = "Edge-Cluster-01"
 
 # NSX-T Manager Configurations
 $NSXTMgrDeploymentSize = "small"
-$NSXTMgrvCPU = "6" #override default size
-$NSXTMgrvMEM = "24" #override default size
+$NSXTMgrvCPU = "2" #override default size
+$NSXTMgrvMEM = "16" #override default size
 $NSXTMgrDisplayName = "pacific-nsx-3"
-$NSXTMgrHostname = "pacific-nsx-3.cpbu.corp"
-$NSXTMgrIPAddress = "172.17.31.118"
+$NSXTMgrHostname = "10.0.10.118"
+$NSXTMgrIPAddress = "10.0.10.118"
 
 # NSX-T Edge Configuration
-$NSXTEdgeDeploymentSize = "medium"
-$NSXTEdgevCPU = "8" #override default size
-$NSXTEdgevMEM = "32" #override default size
+$NSXTEdgeDeploymentSize = "small"
+$NSXTEdgevCPU = "2" #override default size
+$NSXTEdgevMEM = "16" #override default size
 $NSXTEdgeHostnameToIPs = @{
-    "pacific-nsx-edge-3a" = "172.17.31.116"
+    "pacific-nsx-edge-3a" = "10.0.10.116"
 }
 
 # Advanced Configurations
 # Set to 1 only if you have DNS (forward/reverse) for ESXi hostnames
-$addHostByDnsName = 1
+$addHostByDnsName = 0
 
 #### DO NOT EDIT BEYOND HERE ####
 
@@ -157,9 +155,9 @@ $deployNestedESXiVMs = 1
 $deployVCSA = 1
 $setupNewVC = 1
 $addESXiHostsToVC = 1
-$configureVSANDiskGroup = 1
+$configureVSANDiskGroup = 0
 $configureVDS = 1
-$clearVSANHealthCheckAlarm = 1
+$clearVSANHealthCheckAlarm = 0
 $setupPacificStoragePolicy = 1
 $deployNSXManager = 1
 $deployNSXEdge = 1
@@ -168,7 +166,7 @@ $setupPacific = 1
 $moveVMsIntovApp = 1
 
 $vcsaSize2MemoryStorageMap = @{
-"tiny"=@{"cpu"="2";"mem"="12";"disk"="415"};
+"tiny"=@{"cpu"="2";"mem"="12";"disk"="100"};
 "small"=@{"cpu"="4";"mem"="19";"disk"="480"};
 "medium"=@{"cpu"="8";"mem"="28";"disk"="700"};
 "large"=@{"cpu"="16";"mem"="37";"disk"="1065"};
@@ -176,8 +174,8 @@ $vcsaSize2MemoryStorageMap = @{
 }
 
 $nsxStorageMap = @{
-"manager"="200";
-"edge"="200"
+"manager"="100";
+"edge"="100"
 }
 
 $esxiTotalCPU = 0
@@ -507,7 +505,7 @@ if($confirmDeployment -eq 1) {
     if($answer -ne "Y" -or $answer -ne "y") {
         exit
     }
-    Clear-Host
+    #Clear-Host
 }
 
 if( $deployNestedESXiVMs -eq 1 -or $deployVCSA -eq 1 -or $deployNSXManager -eq 1 -or $deployNSXEdge -eq 1) {
@@ -517,7 +515,21 @@ if( $deployNestedESXiVMs -eq 1 -or $deployVCSA -eq 1 -or $deployNSXManager -eq 1
     $datastore = Get-Datastore -Server $viConnection -Name $VMDatastore | Select -First 1
     $cluster = Get-Cluster -Server $viConnection -Name $VMCluster
     $datacenter = $cluster | Get-Datacenter
-    $vmhost = $cluster | Get-VMHost | Select -First 1
+    $vmhost = $cluster | Get-VMHost | Select -Index 1
+    Write-Host -NoNewline -ForegroundColor Green "Data Center : "
+    Write-Host -ForegroundColor White $datacenter
+    Write-Host -NoNewline -ForegroundColor Green "Cluster : "
+    Write-Host -ForegroundColor White $cluster
+    Write-Host -NoNewline -ForegroundColor Green "Host : "
+    Write-Host -ForegroundColor White $vmhost
+    Write-Host -NoNewline -ForegroundColor Green "Datastore : "
+    Write-Host -ForegroundColor White $datastore
+    Write-Host -ForegroundColor Magenta "`nWould you like to proceed with this deployment?`n"
+    $answer = Read-Host -Prompt "Do you accept (Y or N)"
+    if($answer -ne "Y" -or $answer -ne "y") {
+        exit
+    }
+    
 }
 
 if($deployNestedESXiVMs -eq 1) {
@@ -1031,7 +1043,13 @@ if($postDeployNSXConfig -eq 1) {
         $ipPoolSpec.display_name = $TunnelEndpointName
         $ipPoolSpec.description = $TunnelEndpointDescription
         $addResult = $ipPoolSpec.subnets.Add($subNetSpec)
-        $ipPool = $ipPoolService.create($ipPoolSpec)
+        try {
+            $ipPool = $ipPoolService.create($ipPoolSpec)
+        } catch {
+            Write-Error "Error in creating Tunnel Endpoint IP Pool"
+            Write-Error "`n($_.Exception.Message)`n"
+            break
+        }
     }
 
     if($runTransportZone) {
