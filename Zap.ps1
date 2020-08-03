@@ -14,17 +14,17 @@ $NSXTEdgeDisplayName = "pacific-nsx-edge-3a"
 $viConnection = Connect-VIServer $VIServer -User $VIUsername -Password $VIPassword -WarningAction SilentlyContinue
 
 $VMtoKill = Get-VM -name $VCSADisplayName -Server $VIServer
-Stop-VM  -VM $VMtoKill -Server $VIServer
-Remove-VM -VM $VMtoKill -Server $VIServer -DeletePermanently
+Stop-VM  -VM $VMtoKill -Server $viConnection
+Remove-VM -VM $VMtoKill -Server $viConnection -DeletePermanently
 
 $VMtoKill = Get-VM -name $ESXiDisplayName -Server $VIServer
-Stop-VM -VM $VMtoKill -Server $VIServer
-Remove-VM -VM $VMtoKill -Server $VIServer -DeletePermanently
+Stop-VM -VM $VMtoKill -Server $viConnection
+Remove-VM -VM $VMtoKill -Server $viConnection -DeletePermanently
 
 $VMtoKill = Get-VM -name $NSXTMgrDisplayName -Server $VIServer
-Stop-VM -VM $VMtoKill -Server $VIServer
-Remove-VM  -VM $VMtoKill -Server $VIServer -DeletePermanently
+Stop-VM -VM $VMtoKill -Server $viConnection
+Remove-VM  -VM $VMtoKill -Server $viConnection -DeletePermanently
 
 $VMtoKill = Get-VM -name $NSXTEdgeDisplayName -Server $VIServer
-Stop-VM -VM $VMtoKill -Server $VIServer
-Remove-VM -VM $VMtoKill -Server $VIServer -DeletePermanently
+Stop-VM -VM $VMtoKill -Server $viConnection
+Remove-VM -VM $VMtoKill -Server $viConnection -DeletePermanently
