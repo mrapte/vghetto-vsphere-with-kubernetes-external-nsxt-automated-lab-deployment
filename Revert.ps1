@@ -13,18 +13,18 @@ $NSXTEdgeDisplayName = "pacific-nsx-edge-3a"
 
 $viConnection = Connect-VIServer $VIServer -User $VIUsername -Password $VIPassword -WarningAction SilentlyContinue
 
-$VMtoRevert = Get-VM -name $ESXiDisplayName -Server $VIServer
-Set-VM -VM $VMtoRevert -Snapshot "WithNSX"
-Start-VM $VMtoRevert
-
-$VMtoRevert = Get-VM -name $VCSADisplayName -Server $VIServer
-Set-VM -VM $VMtoRevert -Snapshot "WithNSX"
+$VMtoRevert = Get-VM -name $ESXiDisplayName -Server $viConnection
+Set-VM -VM $VMtoRevert -Snapshot "WithNSX" -Confirm:$false
 Start-VM -VM $VMtoRevert
 
-$VMtoRevert = Get-VM -name $NSXTMgrDisplayName -Server $VIServer
-Set-VM -VM $VMtoRevert -Snapshot "WithNSX"
+$VMtoRevert = Get-VM -name $VCSADisplayName -Server $viConnection
+Set-VM -VM $VMtoRevert -Snapshot "WithNSX" -Confirm:$false
 Start-VM -VM $VMtoRevert
 
-$VMtoRevert = Get-VM -name $NSXTEdgeDisplayName -Server $VIServer
-Set-VM -VM $VMtoRevert -Snapshot "WithNSX"
+$VMtoRevert = Get-VM -name $NSXTMgrDisplayName -Server $viConnection
+Set-VM -VM $VMtoRevert -Snapshot "WithNSX" -Confirm:$false
+Start-VM -VM $VMtoRevert
+
+$VMtoRevert = Get-VM -name $NSXTEdgeDisplayName -Server $viConnection
+Set-VM -VM $VMtoRevert -Snapshot "WithNSX" -Confirm:$false
 Start-VM -VM $VMtoRevert
