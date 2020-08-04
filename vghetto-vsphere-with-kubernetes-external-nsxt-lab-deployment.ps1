@@ -7,10 +7,10 @@ $VIUsername = "administrator@vsphere.local"
 $VIPassword = "Viloha123!"
 
 # Full Path to both the Nested ESXi 7.0 VA, Extracted VCSA 7.0 ISO & NSX-T OVAs
-$NestedESXiApplianceOVA = "C:\Users\administrator\Downloads\VMware\ESXi\Nested_ESXi7.0_Appliance_Template_v1.ova"
-$VCSAInstallerPath = "C:\Users\administrator\Downloads\VMware\VCSA\VMware-VCSA-all-7.0.0-16189094"
-$NSXTManagerOVA = "C:\Users\administrator\Downloads\VMware\NSX\nsx-unified-appliance-3.0.0.0.0.15945876-le.ova"
-$NSXTEdgeOVA = "C:\Users\administrator\Downloads\VMware\NSX\nsx-edge-3.0.0.0.0.15945881-le.ova"
+$NestedESXiApplianceOVA = "F:\VMware\ESXi\Nested_ESXi7.0_Appliance_Template_v1.ova"
+$VCSAInstallerPath = "F:\VMware\VCSA\VMware-VCSA-all-7.0.0-16189094"
+$NSXTManagerOVA = "F:\VMware\NSX\nsx-unified-appliance-3.0.0.0.0.15945876-le.ova"
+$NSXTEdgeOVA = "F:\VMware\NSX\nsx-edge-3.0.0.0.0.15945881-le.ova"
 
 # Nested ESXi VMs to deploy
 $NestedESXiHostnameToIPs = @{
@@ -38,7 +38,7 @@ $VCSASSHEnable = "true"
 $VMDatacenter = "Datacenter1"
 $VMCluster = "Cluster1"
 $VMNetwork = "VM Network"
-$VMDatastore = "Datastore-5-10"
+$VMDatastore = "Datastore1"
 $VMNetmask = "255.255.0.0"
 $VMGateway = "10.0.0.1"
 $VMDNS = "10.0.0.1"
