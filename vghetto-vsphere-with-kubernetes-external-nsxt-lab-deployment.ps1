@@ -515,7 +515,7 @@ if( $deployNestedESXiVMs -eq 1 -or $deployVCSA -eq 1 -or $deployNSXManager -eq 1
     $datastore = Get-Datastore -Server $viConnection -Name $VMDatastore | Select -First 1
     $cluster = Get-Cluster -Server $viConnection -Name $VMCluster
     $datacenter = $cluster | Get-Datacenter
-    $vmhost = $cluster | Get-VMHost | Select -Index 1
+    $vmhost = $cluster | Get-VMHost | Select -First 1
     Write-Host -NoNewline -ForegroundColor Green "Data Center : "
     Write-Host -ForegroundColor White $datacenter
     Write-Host -NoNewline -ForegroundColor Green "Cluster : "

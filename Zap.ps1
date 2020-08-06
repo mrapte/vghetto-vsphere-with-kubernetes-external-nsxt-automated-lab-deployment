@@ -28,3 +28,6 @@ Remove-VM  -VM $VMtoKill -Server $viConnection -DeletePermanently -Confirm:$fals
 $VMtoKill = Get-VM -name $NSXTEdgeDisplayName -Server $viConnection
 Stop-VM -VM $VMtoKill -Server $viConnection -Confirm:$false
 Remove-VM -VM $VMtoKill -Server $viConnection -DeletePermanently -Confirm:$false
+
+echo "DONT FORGET to Delete vApp 'vGhetto-Nested-Project-Pacific-NSX-T-External-Lab*' in the Datacenter1"
+echo "DONT FORGET to Delete VMFolder 'Project-Pacific' in the Datacenter1"
