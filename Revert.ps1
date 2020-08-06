@@ -27,10 +27,10 @@ Set-VM -VM $VMtoRevertNSXTEdge -Snapshot "Nested-NSX-T-3.0-Base" -Confirm:$false
 
 if ($args[0] -eq 1) {
     Start-VM -VM $VMtoRevertESXi
-    Start-Sleep 120
+    Start-Sleep -Seconds 120
     Start-VM -VM $VMtoRevertVCSA
-    Start-Sleep 240
+    Start-Sleep -Seconds 240
     Start-VM -VM $VMtoRevertNSXTMgr
-    Start-Sleep 120
+    Start-Sleep -Seconds 120
     Start-VM -VM $VMtoRevertNSXTEdge
 }
