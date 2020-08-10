@@ -14,4 +14,5 @@ $viConnection = Connect-VIServer $VIServer -User $VIUsername -Password $VIPasswo
 $VMsToWorkOn.GetEnumerator() | Foreach-Object {
     echo "Starting $_"
     Start-VM -VM (Get-VM -name $_ -Server $viConnection)
+    Start-Sleep -s 120
 }
