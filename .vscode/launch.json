@@ -33,5 +33,13 @@
             "args": ["0"],
             "cwd": "${workspaceFolder}"
         }
+        {
+            "name": "PS:LaunchScripts - KubeLabDeploy.ps1",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/vghetto-vsphere-with-kubernetes-external-nsxt-lab-deployment.ps1",
+            "args": ["0"],
+            "cwd": "${workspaceFolder}"
+        }
     ]
 }
