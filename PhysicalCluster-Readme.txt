@@ -5,6 +5,5 @@ In the VCSA managing physical ESXi cluster, do the following settings
     3. If vSAN used, enable fake SCSI reservation
     4. Adjust Nested VMs (ESXi, VCSA, NSXTMgr and NSXEdge) CPU/Memory/No Reservation configuration 
              and move them to the right physical ESXi hosts
-    5. Add VM/Host Groups and Affinity rules to assign Nested VMs to physical hosts 
-    6. Setup 2 (instead of 3) Supervisor Control Plane VMs in Nested VCSA using /etc/vmware/wcp/wcpsvc.yaml
+    5. Add VM/Host Groups and Affinity rules to assign Nested VMs to physical hosts
     

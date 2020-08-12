@@ -7,10 +7,10 @@ $VIUsername = "administrator@vsphere.local"
 $VIPassword = "Viloha123!"
 
 # Full Path to both the Nested ESXi 7.0 VA, Extracted VCSA 7.0 ISO & NSX-T OVAs
-$NestedESXiApplianceOVA = "F:\VMware\ESXi\7.0ga\Nested_ESXi7.0_Appliance_Template_v1.ova"
-$VCSAInstallerPath = "F:\VMware\VCSA\7.0.0c\VMware-VCSA-all-7.0.0-16620007"
-$NSXTManagerOVA = "F:\VMware\NSX\3.0.1.x\nsx-unified-appliance-3.0.1.1.0.16567454-le.ova"
-$NSXTEdgeOVA = "F:\VMware\NSX\3.0.1.x\nsx-edge-3.0.1.1.0.16567459-le.ova"
+$NestedESXiApplianceOVA = "C:\Users\mapte\Downloads\VMware\ESXi\7.0ga\Nested_ESXi7.0_Appliance_Template_v1.ova"
+$VCSAInstallerPath = "C:\Users\mapte\Downloads\VMware\VCSA\7.0.0c\VMware-VCSA-all-7.0.0-16620007"
+$NSXTManagerOVA = "C:\Users\mapte\Downloads\VMware\NSX\3.0.1.x\nsx-unified-appliance-3.0.1.1.0.16567454-le.ova"
+$NSXTEdgeOVA = "C:\Users\mapte\Downloads\VMware\NSX\3.0.1.x\nsx-edge-3.0.1.1.0.16567459-le.ova"
 
 # Nested ESXi VMs to deploy
 $NestedESXiHostnameToIPs = @{
@@ -515,7 +515,7 @@ if( $deployNestedESXiVMs -eq 1 -or $deployVCSA -eq 1 -or $deployNSXManager -eq 1
     $datastore = Get-Datastore -Server $viConnection -Name $VMDatastore | Select -First 1
     $cluster = Get-Cluster -Server $viConnection -Name $VMCluster
     $datacenter = $cluster | Get-Datacenter
-    $vmhost = $cluster | Get-VMHost | Select -Index 1
+    $vmhost = $cluster | Get-VMHost | Select -First 1
     Write-Host -NoNewline -ForegroundColor Green "Data Center : "
     Write-Host -ForegroundColor White $datacenter
     Write-Host -NoNewline -ForegroundColor Green "Cluster : "
