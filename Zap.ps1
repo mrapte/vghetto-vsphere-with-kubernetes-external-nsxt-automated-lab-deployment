@@ -4,7 +4,7 @@
 # vCenter Server used to deploy vSphere with Kubernetes Lab
 $VIServer = "10.0.5.8"
 $VIUsername = "administrator@vsphere.local"
-$VIPassword = "Viloha123!"
+$VIPassword = "Viloha123!!!"
 
 $VCSADisplayName = "pacific-vcsa-3"
 $ESXiDisplayName = "pacific-esxi-7"
