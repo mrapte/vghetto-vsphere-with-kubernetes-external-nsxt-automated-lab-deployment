@@ -26,19 +26,27 @@
             "cwd": "${workspaceRoot}"
         },
         {
-            "name": "PS:LaunchScripts - Revert.ps1",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "${workspaceFolder}/Revert.ps1",
-            "args": ["0"],
-            "cwd": "${workspaceFolder}"
-        }
-        {
-            "name": "PS:LaunchScripts - KubeLabDeploy.ps1",
+            "name": "KubeLabDeploy.ps1",
             "type": "PowerShell",
             "request": "launch",
             "script": "${workspaceFolder}/vghetto-vsphere-with-kubernetes-external-nsxt-lab-deployment.ps1",
             "args": ["0"],
+            "cwd": "${workspaceFolder}"
+        }
+        {
+            "name": "Revert to Workload",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/Revert.ps1",
+            "args": ["Nested-NSX-T-3.0-Workload", "0"],
+            "cwd": "${workspaceFolder}"
+        }
+        {
+            "name": "Revert to NSX-T 3.0 Base",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/Revert.ps1",
+            "args": ["Nested-NSX-T-3.0-Workload", "0"],
             "cwd": "${workspaceFolder}"
         }
     ]
