@@ -1,0 +1,57 @@
+Phy/Mgmt VC
+	Deploy Prod/Nested ESXi VM(s)
+		Add vmnic2/3
+		Update CPU count
+		Power on ESXi Nested VM(s)
+	Deploy Prod/Nested NSX-T Mgr VM
+		Update CPU Count
+		Disable CPU reservation
+		Power on NSX-T Mgr VM
+	Deploy Prod/Nested VCSA
+	Deploy Prod/Nested Edge VM(s)
+		Connect to NSX-T Mgr
+		Retreive NSX-T Mgr Thumbprint
+		Accept NSX-T Mgr EULA
+		Apply NSX-T license
+		Disconnect from NSX-T Mgr
+		Deploy Edge VM with NSX-T Mgr IP and Thumbprint
+	Create vApp group
+	Create VM Folder
+	Move Prod/Nested VMs to vApp group
+	Move vApp to VM Folder
+
+Prod/Nested VC Config
+	Create DC
+	Create Cluster
+		Added Prod/Nested ESXi to VC
+		Configure shared datastore or VSAN (if Enabled) for Prod/Nested Cluster
+		Create VDS and Dist Port Group
+			Add each Prod/Nested ESXi to VDS
+ 			Added vmnic1 of each ESXi host to VDS
+		Enable vMotion traffic
+		Setup Storage Policy
+
+Prod/Nested NEXT Mgr Config
+	Health check for Mgmt and Controller nodes
+	Register Prod/Nested VC as Computer Manager
+	Create TEP IP Pool
+	Create Overlay and VLAN Transport Zones
+	Create Uplinl Profile for ESXi host and Edge nodes
+	Create Transport Node Profile
+	Apply Transport Node Profile to Prod/Nested ESXi
+	Add Edge Transport Node VM
+	Create Edge Cluster with Edge Node VM
+	Add "Pacifi-Segment" network segment for VLAN TZ
+	Create T0 Gateway and interface
+	Add Static Route on T0 Gatway interface
+	Register Prod/Nested VC OIDC Endpoint
+
+Using PhyVC to execute commands in the Prod/Nested VC
+	Create Principal Identity in NSX-T Mgr 
+		via Prod/Nested VC via dcli +show-unreleased com vmware vcenter nsxd principalidentity create
+	Create DevOps user in Prod/Nested VC
+
+	
+
+
+	
