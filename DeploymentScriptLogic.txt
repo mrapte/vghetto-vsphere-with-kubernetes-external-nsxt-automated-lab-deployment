@@ -36,7 +36,7 @@ Prod/Nested NEXT Mgr Config
 	Register Prod/Nested VC as Computer Manager
 	Create TEP IP Pool
 	Create Overlay and VLAN Transport Zones
-	Create Uplinl Profile for ESXi host and Edge nodes
+	Create Uplink Profile for ESXi host and Edge nodes
 	Create Transport Node Profile
 	Apply Transport Node Profile to Prod/Nested ESXi
 	Add Edge Transport Node VM
