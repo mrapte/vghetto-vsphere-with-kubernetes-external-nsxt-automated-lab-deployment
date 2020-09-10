@@ -17,4 +17,5 @@ In the VCSA managing physical ESXi cluster, do the following settings
     6. Keep ESXi and VCSA up-to-date
     7. Shutdown Nested VMs in Order : NSXTMgr, NSXEdge, VCSA, ESXi
     8. Create snapshots and backup Nested VMs if possible
+    9. Add 'admin' user to 'administrators' group
     
